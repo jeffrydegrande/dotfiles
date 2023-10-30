@@ -17,14 +17,14 @@
     #
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
-    follow = none
+    follow = mouse
 
     ### Geometry ###
 
     # dynamic width from 0 to 300
     # width = (0, 300)
     # constant width of 300
-    width = 400
+    width = 600
 
     # The maximum height of a single notification, excluding the frame.
     height = 300
@@ -33,7 +33,7 @@
     origin = top-right
 
     # Offset from the origin
-    offset = 10x40
+    offset = 10x10
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -92,7 +92,7 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 3
+    frame_width = 0
 
     # Defines color of the frame around the notification window.
     frame_color = "#aaaaaa"
@@ -122,8 +122,8 @@
     # idle_threshold = 120
 
     ### Text ###
-
-    font = Hack 16
+    # font = Hack 16
+    font = Iosevka 20
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -163,7 +163,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<b>%s</b>\n%b\n%a"
+    format = "→ %a\n<b>%s</b>\n%b\n"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
@@ -198,10 +198,10 @@
 
     # Recursive icon lookup. You can set a single theme, instead of having to
     # define all lookup paths.
-    enable_recursive_icon_lookup = true
+    enable_recursive_icon_lookup = false
 
     # Set icon theme (only used for recursive icon lookup)
-    icon_theme = Adwaita
+    # icon_theme = Adwaita
     # You can also set multiple icon themes, with the leftmost one being used first.
     # icon_theme = "Adwaita, breeze"
 
@@ -211,13 +211,14 @@
     # Scale small icons up to this size, set to 0 to disable. Helpful
     # for e.g. small files or high-dpi screens. In case of conflict,
     # max_icon_size takes precedence over this.
-    min_icon_size = 32
+    min_icon_size = 0
 
     # Scale larger icons down to this size, set to 0 to disable
     max_icon_size = 128
 
     # Paths to default icons (only neccesary when not using recursive icon lookup)
-    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    # /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_path = /home/jeffry/.local/share/icons/fontawesome/brands/
 
     ### History ###
 
@@ -313,19 +314,19 @@
 # For more configuraion options see https://github.com/dunst-project/dunst/blob/master/dunstrc
 
 [urgency_low]
-    background = "#e9e9ec"
-    foreground = "#3760bf"
-    frame_color = "#3760bf"
+  background = "#1e1e2e"
+  foreground = "#a6e3a1"
+  frame_color = "#a6e3a1"
 
 [urgency_normal]
-    background = "#e1e2e7"
-    foreground = "#3760bf"
-    frame_color = "#3760bf"
+  background = "#1e1e2e"
+  foreground = "#74c7ec"
+  frame_color = "#74c7ec"
 
 [urgency_critical]
-    background = "#c4c8da"
-    foreground = "#c64343"
-    frame_color = "#c64343"
+  background = "#1e1e2e"
+  foreground = "#f38ba8"
+  frame_color = "#f38ba8"
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
