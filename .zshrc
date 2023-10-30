@@ -80,11 +80,7 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -112,8 +108,22 @@ bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
 
 bindkey -s '^f' "tmux-sessionizer\n"
-bindkey -s '^o' "tmux-sessionizer ~/Code/KYT/honcho\n"
+#bindkey -s '^o' "tmux-sessionizer ~/Code/KYT/honcho\n"
 bindkey -s '^a' "tmux-reattach\n"
+
+# Fucntion keys
+# bindkey '^[OP' f1
+# bindkey '^[OQ' f2
+# bindkey '^[OR' f3
+# bindkey '^[OS' f4
+#bindkey -s '^[[15~' "tmux-sessionizer\n" # F5
+#bindkey -s '^[[17~' "tmux-reattach\n" # F6
+#bindkey -s '^[[18~' "tmux-sessionizer ~/Code/KYT/honcho\n" # F7
+#bindkey -s '^[[19~' "tmux-sessionizer ~/Code/LuckyLady/MakenaBot\n" # F8
+# bindkey '^[[20~' f9
+# bindkey '^[[21~' f10
+# bindkey '^[[23~' f11
+# bindkey '^[[24~' f12
 
 # fasd, the thingy we use for jumping around directories
 #
@@ -162,9 +172,10 @@ autoload -Uz add-zsh-hook
 source <(/usr/bin/starship init zsh --print-full-init)
 
 export EXA_COLORS=$(vivid generate iceberg-dark)
+export TERM=xterm-256color
 
 # opam configuration (OCaml)
-[[ ! -r /home/jeffry/.opam/opam-init/init.zsh ]] || source /home/jeffry/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+[[ ! -r ~/.opam/opam-init/init.zsh ]] || source ~/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 # personal config that shouldn't be exposed in git.
 . ~/.zshrc.secret
