@@ -173,6 +173,8 @@ source <(/usr/bin/starship init zsh --print-full-init)
 
 export EXA_COLORS=$(vivid generate iceberg-dark)
 export TERM=xterm-256color
+# makes fpp open files in buffers in nvim rather that
+export FPP_DISABLE_SPLIT=1
 
 # opam configuration (OCaml)
 [[ ! -r ~/.opam/opam-init/init.zsh ]] || source ~/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
