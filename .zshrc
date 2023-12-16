@@ -109,7 +109,7 @@ bindkey '^r' history-incremental-search-backward
 
 bindkey -s '^f' "tmux-sessionizer\n"
 #bindkey -s '^o' "tmux-sessionizer ~/Code/KYT/honcho\n"
-bindkey -s '^a' "tmux-reattach\n"
+#bindkey -s '^a' "tmux-reattach\n"
 
 # Fucntion keys
 # bindkey '^[OP' f1
@@ -142,17 +142,20 @@ alias d='fasd -d' # directory
 alias f='fasd -f' # file
 alias z='fasd_cd -d' # cd, same functionality as j in autojump
 alias zz='fasd_cd -d -i' # interactive directory jump
+alias n="tmux-window"
 
 alias ls="exa -abgl --git --color-scale --icons --group-directories-first -@"
 alias cat="bat"
 alias git=hub
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
-alias vi=vim
 alias vim='nvim'
+alias vi=vim
+alias v=vim
+alias cobra=cobra-cli
 alias s="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' | xargs nvim"
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
-compdef config='git' # make zsh complete config as if it were git?
+compdef config='git'
 
 eval $(thefuck --alias)
 
@@ -172,7 +175,7 @@ autoload -Uz add-zsh-hook
 source <(/usr/bin/starship init zsh --print-full-init)
 
 export EXA_COLORS=$(vivid generate iceberg-dark)
-export TERM=xterm-256color
+# export TERM=xterm-256color
 # makes fpp open files in buffers in nvim rather that
 export FPP_DISABLE_SPLIT=1
 
@@ -195,3 +198,13 @@ function cd() {
     builtin cd $@
     loadenv
 }
+
+export SHELLBOT="/mnt/data/Code/github/shellbot/target/release/shellbot"
+export SHELLBOT_PROMPT='
+
+  You are a helpful asssistant wo provides brief explanations and short code snippets
+  for technologies like JavaScript, Rust, Ruby, Ruby on Rails, HTML, CSS, Zsh, Go and Lua.
+  Your user is an expert programmer so you should be as consise as possible. You do not show 
+  lengthy steps or setup instructions. Questions will be asked using Markdown, and you should
+  feel free to use Markdown syntax in your replies.
+'
