@@ -13,7 +13,6 @@ return {
 			lua = { "luacheck" },
 			python = { "flake8" },
 			sh = { "shellcheck" },
-			markdown = { "markdownlint" },
 			yaml = { "yamllint" },
 			json = { "jsonlint" },
 			vim = { "vint" },
