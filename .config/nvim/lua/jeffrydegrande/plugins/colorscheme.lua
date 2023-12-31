@@ -8,12 +8,19 @@
 -- 		end,
 -- 	},
 -- }
+-- return {
+-- 	"folke/tokyonight.nvim",
+-- 	priority = 1000,
+-- 	opts = { style = "moon" }, -- moon, day, night, storm
+-- 	config = function()
+-- 		vim.cmd("colorscheme tokyonight-moon")
+-- 	end,
+-- }
 
 return {
-	"folke/tokyonight.nvim",
+	"shaunsingh/nord.nvim",
 	priority = 1000,
-	opts = { style = "moon" }, -- moon, day, night, storm
 	config = function()
-		vim.cmd("colorscheme tokyonight-moon")
+		vim.cmd("colorscheme nord")
 	end,
 }

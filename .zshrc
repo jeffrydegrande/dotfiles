@@ -208,3 +208,5 @@ export SHELLBOT_PROMPT='
   lengthy steps or setup instructions. Questions will be asked using Markdown, and you should
   feel free to use Markdown syntax in your replies.
 '
+
+export GOPATH="$HOME/go"

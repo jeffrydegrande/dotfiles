@@ -91,6 +91,15 @@ return {
 
 		-- configure tailwindcss server
 		lspconfig["tailwindcss"].setup({
+			filetypes = {
+				"html",
+				"templ",
+			},
+			init_options = {
+				userLanguages = {
+					templ = "html",
+				},
+			},
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
@@ -156,16 +165,58 @@ return {
 		lspconfig["solargraph"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			flags = {
+				debounce_text_changes = 150,
+			},
 		})
 
 		lspconfig["gopls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			flags = {
+				debounce_text_changes = 150,
+			},
 		})
 
 		lspconfig["zls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+		})
+
+		lspconfig["templ"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			flags = {
+				debounce_text_changes = 150,
+			},
+		})
+
+		local configs = require("lspconfig/configs")
+
+		if not configs.golangcilsp then
+			print("Configuring golangci-lint-langserver")
+			configs.golangcilsp = {
+				default_config = {
+					cmd = { "golangci-lint-langserver" },
+					root_dir = lspconfig.util.root_pattern(".git", "go.mod"),
+					init_options = {
+						command = {
+							"golangci-lint",
+							"run",
+							"--enable-all",
+							"--disable",
+							"lll",
+							"--out-format",
+							"json",
+							"--issues-exit-code=1",
+						},
+					},
+				},
+			}
+		end
+
+		lspconfig.golangci_lint_ls.setup({
+			filetypes = { "go", "gomod" },
 		})
 
 		-- lspconfig["sqls"].setup({
