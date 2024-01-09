@@ -22,3 +22,5 @@ opt.splitbelow = true
 
 opt.grepprg = "rg --vimgrep --no-heading --smart-case"
 opt.grepformat = "%f:%l:%c:%m,%f:%l:%m"
+
+vim.g.netrw_banner = 0
