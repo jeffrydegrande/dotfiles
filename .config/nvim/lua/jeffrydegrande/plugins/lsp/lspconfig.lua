@@ -4,10 +4,12 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
+		"j-hui/fidget.nvim",
 	},
 	config = function()
 		-- require("neodev").setup({})
 		-- import lspconfig plugin
+		require("fidget").setup({})
 		local lspconfig = require("lspconfig")
 
 		-- import cmp-nvim-lsp plugin
@@ -194,7 +196,6 @@ return {
 		local configs = require("lspconfig/configs")
 
 		if not configs.golangcilsp then
-			print("Configuring golangci-lint-langserver")
 			configs.golangcilsp = {
 				default_config = {
 					cmd = { "golangci-lint-langserver" },
