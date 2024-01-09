@@ -29,7 +29,7 @@ CASE_SENSITIVE="true"
 # export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
-DISABLE_LS_COLORS="true"
+#DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -174,7 +174,10 @@ autoload -Uz add-zsh-hook
 
 source <(/usr/bin/starship init zsh --print-full-init)
 
-export EXA_COLORS=$(vivid generate iceberg-dark)
+eval $(dircolors ~/.dir_colors)
+export EXA_COLORS=$LS_COLORS
+
+# export EXA_COLORS=$(vivid generate iceberg-dark)
 # export TERM=xterm-256color
 # makes fpp open files in buffers in nvim rather that
 export FPP_DISABLE_SPLIT=1
