@@ -4,7 +4,7 @@ font Iosevka 18
 floating_modifier $mod
 
 ##Keybindings
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
 bindsym $mod+c exec /usr/bin/google-chrome-stable --profile-directory="Profile 3"
 bindsym $mod+Shift+c exec /usr/bin/google-chrome-stable --profile-directory="Default"
 # kill focused window
