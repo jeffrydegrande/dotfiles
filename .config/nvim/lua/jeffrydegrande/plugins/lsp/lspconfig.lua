@@ -193,6 +193,14 @@ return {
 			},
 		})
 
+		lspconfig["rust_analyzer"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			flags = {
+				debounce_text_changes = 150,
+			},
+		})
+
 		local configs = require("lspconfig/configs")
 
 		if not configs.golangcilsp then
