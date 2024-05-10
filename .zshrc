@@ -145,7 +145,7 @@ alias zz='fasd_cd -d -i' # interactive directory jump
 alias n="tmux-window"
 
 alias ls="exa -abgl --git --color-scale --icons --group-directories-first -@"
-alias cat="bat"
+alias cat="bat --theme=Nord"
 alias git=hub
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
