@@ -213,3 +213,6 @@ export SHELLBOT_PROMPT='
 '
 
 export GOPATH="$HOME/go"
+
+eval "$(gh copilot alias -- zsh)"
+
