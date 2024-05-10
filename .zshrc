@@ -216,3 +216,8 @@ export GOPATH="$HOME/go"
 
 eval "$(gh copilot alias -- zsh)"
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/jeffry/.google-cloud-sdk/path.zsh.inc' ]; then . '/home/jeffry/.google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/jeffry/.google-cloud-sdk/completion.zsh.inc' ]; then . '/home/jeffry/.google-cloud-sdk/completion.zsh.inc'; fi
