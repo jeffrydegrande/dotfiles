@@ -1,0 +1,60 @@
+configuration{
+    modi: ["drun", "window", "run"];
+    icon-theme: "Papirus-Dark";
+    show-icons: true;
+    terminal: "alacritty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    sidebar-mode: false;
+    display-drun: " ";
+    display-run: " ";
+    display-window: " ";
+    
+    //adding vim keybindings
+    kb-row-up: "Up,Control+k";
+    kb-row-left: "Left,Control+h";
+    kb-row-right: "Right,Control+l";
+    kb-row-down: "Down,Control+j";
+
+    kb-accept-entry: "Control+z,Control+y,Return,KP_Enter";
+
+    //fixing up
+    kb-remove-to-eol: "";
+    kb-move-char-back: "Control+b";
+    kb-remove-char-back: "BackSpace";
+    kb-move-char-forward: "Control+f";
+    kb-mode-complete: "Control+o";
+
+
+     // font: "Envy Code R 20";
+     font: "CaskaydiaMono Nerd Font R 25";
+    line-margin: 40;
+    display-ssh:    "";
+    display-run:    "";
+    display-drun:   "";
+    display-window: "";
+    display-combi:  "";
+}
+
+@theme "~/.config/rofi/nord.rasi"
+
+
+listview {
+	lines: 8;
+	columns: 1;
+}
+
+//window {
+//	width: 80%;
+ // height: 40%;
+  //padding: 60px 60px 60px 60px;
+window {
+  width:            50%;
+  height:           75%;
+  fullscreen:       false;
+  border:           none;
+  border-radius:    0 0 7.5px 7.5px;
+  padding:          0 0 10px 0;
+  border-color:     @nord0;
+}
