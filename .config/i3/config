@@ -4,9 +4,11 @@ font Iosevka 18
 floating_modifier $mod
 
 ##Keybindings
-bindsym $mod+Return exec alacritty
+#bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 bindsym $mod+c exec /usr/bin/google-chrome-stable --profile-directory="Profile 3"
 bindsym $mod+Shift+c exec /usr/bin/google-chrome-stable --profile-directory="Default"
+
 # kill focused window
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id rofi -show drun
@@ -24,7 +26,7 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # split in horizontal orientation
-# bindsym $mod+h split h
+# bindsym $mod+H split h
 
 # split in vertical orientation
 # bindsym $mod+v split v
@@ -38,16 +40,18 @@ bindsym $mod+Shift+l move right
 # bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+# bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+# bindsym $mod+a focus parent
 
-bindsym Print exec --no-startup-id flameshot gui
-bindsym $mod+Print exec --no-startup-id flameshot screen
+# bindsym Print exec --no-startup-id flameshot gui
+# bindsym $mod+Print exec --no-startup-id flameshot screen
+bindsym Print exec --no-startup-id ~/.bin/screenshot-sharer.sh --select
+bindsym $mod+Print exec --no-startup-id ~/.bin/screenshot-sharer.sh --select
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -58,11 +62,11 @@ bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
-# bindsym $mod+6 workspace 6
-# bindsym $mod+7 workspace 7
-# bindsym $mod+8 workspace 8
-# bindsym $mod+9 workspace 9
-# bindsym $mod+0 workspace 10
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -140,9 +144,9 @@ bindsym --whole-window button8 move right
 
 # Pulse Audio controls
 # TODO: these aren't exactly working on the moonlander :(
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl -- set-sink-mute 0 toggle # mute sound
 
 bindsym XF86AudioPlay exec playerctl  --player=spotify play
 bindsym XF86AudioStop exec playerctl  --player=spotify stop
@@ -168,20 +172,18 @@ workspace 2 output DP-4
 workspace 3 output HDMI-2
 workspace 4 output HDMI-2
 workspace 5 output HDMI-2
-# workspace 6 output HDMI-2
-# workspace 7 output HDMI-2
-# workspace 8 output HDMI-2
-# workspace 9 output HDMI-2
-# workspace 10 output HDMI-2
+workspace 6 output DP-4
+workspace 7 output DP-4
+workspace 8 output DP-4
+workspace 9 output DP-4
+workspace 10 output DP-4
 
 assign [class="Google-chrome"] workspace 3
 for_window [class="obsidian"] move to workspace 2
 for_window [class="keymapp"] move to workspace 4
+for_window [class="Super Productivity"] move to workspace 4
 for_window [class="Spotify"] move to workspace 5
 
 exec obsidian
+# exec superproductivity
 exec spotify
-
-#scratchpad (disabling scratchpad because I'm not sure how it helps me)
-# bindsym $mod+Shift+minus move scratchpad
-# bindsym $mod+minus scratchpad show

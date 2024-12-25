@@ -1,7 +1,6 @@
 return {
 	{ "nvim-lua/plenary.nvim" },
 	{ "kdheepak/lazygit.nvim" },
-	{ "mbbill/undotree" },
 	{
 		"raghur/vim-ghost",
 		build = ":lua GhostInstall",
@@ -19,4 +18,5 @@ return {
 	{ "tpope/vim-rhubarb" },
 	{ "tpope/vim-eunuch" },
 	{ "tpope/vim-rails" },
+	{ "gpanders/editorconfig.nvim" },
 }

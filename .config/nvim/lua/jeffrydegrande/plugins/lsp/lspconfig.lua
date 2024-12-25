@@ -79,12 +79,6 @@ return {
 			on_attach = on_attach,
 		})
 
-		-- configure typescript server with plugin
-		lspconfig["tsserver"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
 		-- configure css server
 		lspconfig["cssls"].setup({
 			capabilities = capabilities,
@@ -97,11 +91,22 @@ return {
 				"html",
 				"templ",
 			},
-			init_options = {
-				userLanguages = {
-					templ = "html",
+			settings = {
+				tailwindCSS = {
+					includeLanguages = {
+						css = "css",
+						html = "html",
+						javascript = "javascript",
+						typescript = "typescript",
+						temple = "html",
+					},
 				},
 			},
+			-- init_options = {
+			-- 	userLanguages = {
+			-- 		templ = "html",
+			-- 	},
+			-- },
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
@@ -199,6 +204,12 @@ return {
 			flags = {
 				debounce_text_changes = 150,
 			},
+		})
+
+		lspconfig["htmx"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = { "html", "templ" },
 		})
 
 		local configs = require("lspconfig/configs")
