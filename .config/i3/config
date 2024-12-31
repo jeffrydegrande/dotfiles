@@ -1,11 +1,13 @@
 set $mod Mod1
+
 font Iosevka 18
 
 floating_modifier $mod
 
 ##Keybindings
-#bindsym $mod+Return exec alacritty
-bindsym $mod+Return exec kitty
+bindsym $mod+Shift+Return exec kitty
+bindsym $mod+Return exec /home/jeffry/.local/bin/ghostty
+
 bindsym $mod+c exec /usr/bin/google-chrome-stable --profile-directory="Profile 3"
 bindsym $mod+Shift+c exec /usr/bin/google-chrome-stable --profile-directory="Default"
 

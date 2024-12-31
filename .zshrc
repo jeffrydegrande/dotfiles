@@ -15,6 +15,7 @@ plugins=(
   thefuck
   zoxide
   zsh-autosuggestions
+  documented-aliases
 )
 
 zstyle :omz:plugins:ssh-agent agent-forwarding on
@@ -53,11 +54,12 @@ bindkey -s '^a' "tmux-reattach\n"
 
 export PATH="$PATH:$HOME/.bin:$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin"
 
-alias ls="exa  -bglh --git --color-scale --icons --group-directories-first -@"
-alias ll="exa -abglh --git --color-scale --icons --group-directories-first -@"
+alias ls="exa  -bglh --git --color-scale --icons --group-directories-first -@"  # list files
+alias ll="exa -abglh --git --color-scale --icons --group-directories-first -@"  # list files, include dotfiles
+alias f=yazi  # The yazi filemanager
 
-alias cat="bat --theme=Nord"
-alias catt="bat -p --theme=Nord"
+alias cat="bat --theme=Nord"  # cat with syntax highlighting
+alias catt="bat -p --theme=Nord" # cat without syntax highlighting
 alias git=hub
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
@@ -66,14 +68,14 @@ alias vi=vim
 # alias v=vim
 alias cobra=cobra-cli
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+alias zshrc="source ~/.zshrc"
 
 compdef config='git'
 
 alias R="tmux resize-pane -x 70%"
 alias r="tmux resize-pane -x 50%"
 
-
-export FZF_DEFAULT_COMMAND='ag --path-to-ignore ~/.ignore -g ""'
+export FZF_DEFAULT_COMMAND='rg --path-to-ignore ~/.ignore -g ""'
 
 # disable auto correct
 unsetopt correct_all
@@ -100,29 +102,19 @@ export FPP_DISABLE_SPLIT=1
 # personal config that shouldn't be exposed in git.
 . ~/.zshrc.secret
 
-function loadenv() {
-    if [ -f .env ];
-    then
-        source .env
-    fi
-}
-
+# function loadenv() {
+#     if [ -f .env ];
+#     then
+#         source .env
+#     fi
+# }
+#
 # Overwrites `cd` to load environment files when they're available. There is no unloading going on. In practice
 # it doesn't supper matter because I tend to open new shells for new tasks.
 # function cd() {
 #     builtin cd $@
 #     loadenv
 # }
-
-export SHELLBOT="/mnt/data/Code/github/shellbot/target/release/shellbot"
-export SHELLBOT_PROMPT='
-
-  You are a helpful asssistant wo provides brief explanations and short code snippets
-  for technologies like JavaScript, Rust, Ruby, Ruby on Rails, HTML, CSS, Zsh, Go and Lua.
-  Your user is an expert programmer so you should be as consise as possible. You do not show
-  lengthy steps or setup instructions. Questions will be asked using Markdown, and you should
-  feel free to use Markdown syntax in your replies.
-'
 
 export GOPATH="$HOME/go"
 
@@ -133,3 +125,6 @@ if [ -f '/home/jeffry/.google-cloud-sdk/path.zsh.inc' ]; then . '/home/jeffry/.g
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/jeffry/.google-cloud-sdk/completion.zsh.inc' ]; then . '/home/jeffry/.google-cloud-sdk/completion.zsh.inc'; fi
+
+# Setting this because ghostty thinks it's on macos ?
+export XDG_CONFIG_HOME="$HOME/.config"
